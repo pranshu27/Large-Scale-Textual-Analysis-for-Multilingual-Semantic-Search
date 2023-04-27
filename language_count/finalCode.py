@@ -22,6 +22,19 @@ from nltk.corpus import stopwords
 import warnings
 warnings.filterwarnings("ignore")
 nltk.download("stopwords")
+import logging
+
+
+log_filename = 'chunk2.log'
+
+logging.basicConfig(
+    filename=log_filename,
+    level=logging.INFO,
+    format='%(asctime)s %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
+
 
 
 # define the Unicode ranges for each language
@@ -51,7 +64,7 @@ def detect_language(sentence):
     # determine the language with the highest character count
     language_counts = {
         "Hindi": hindi_count,
-        "English": english_count,
+        "Roman": english_count,
         "Punjabi": punjabi_count,
         "Gujarati": gujarati_count,
         "Telugu": telugu_count,
@@ -73,7 +86,7 @@ os.environ["PYTHONHASHSEED"] = str(SEED)
 np.random.seed(SEED)
 
 
-pref = "/home/installer/ps/lc_roman_hindilatin/preprocessed1"
+pref = "/home/installer/ps/lc_roman_hindilatin/preprocessed1/"
 
 clusters = 2
 def mbkmeans_clusters(X, k):
@@ -96,11 +109,37 @@ def classify_eng_hindi_latin(df):
         "Hindi-Latin" : hl
     }
     
+    
+final_counts = dict()
 for f in os.listdir(pref):
     if(f.endswith("pkl")):
-        df = pd.read_pickle(path)
+        logging.info(f)
+        df = pd.read_pickle(pref+f)
         # remove empty sentences or sentences with just spaces
         df = df.dropna(subset=["subject_content_cleaned"])
         df = df[df["subject_content_cleaned"].str.strip().astype(bool)]
+        logging.info("Detecting language")
+        df['Language'] = df['subject_content_cleaned'].apply(detect_language)
+        df_roman = df[df.Language == "Roman"]
+        df_non_roman = df[df.Language != "Roman"]
+        
+        d1 = classify_eng_hindi_latin(df_roman)
+        d2 = dict(df_non_roman.Language.value_counts())
+        
+        d1.update(d2)
+        final_counts.update(d1)
+        logging.info(final_counts)
+        
+    
+with open('final_counts.pkl', 'wb') as f:
+    pickle.dump(final_counts, f)
+logging.info("dumped to pickle")
+    
+    
+
+        
+        
+        
+        
     
     
