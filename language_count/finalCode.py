@@ -131,8 +131,54 @@ for f in os.listdir(pref):
         logging.info(final_counts)
         
     
-with open('final_counts.pkl', 'wb') as f:
+result_dict = {}
+
+for d in final_counts:
+    for key, value in d.items():
+        if key not in result_dict:
+            result_dict[key] = value
+        else:
+            result_dict[key] += value
+
+
+with open('/home/installer/ps/language_count/final_counts.pkl', 'wb') as f:
     pickle.dump(final_counts, f)
+    
+with open('/home/installer/ps/language_count/result_dict.pkl', 'wb') as f:
+    pickle.dump(result_dict, f)
+    
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Convert result_dict to a pandas DataFrame
+df = pd.DataFrame.from_dict(result_dict, orient='index', columns=['count'])
+
+# Create horizontal bar plot using seaborn
+sns.set(style="whitegrid")
+ax = sns.barplot(x='count', y=df.index, data=df, color='blue')
+
+# Set plot properties
+ax.set_xlabel('Count')
+ax.set_ylabel('Language')
+ax.set_title('Distribution of Languages')
+ax.set_xlim(0, max(df['count']) * 1.1)
+
+# Add values to the bars
+for i, v in enumerate(df['count']):
+    ax.text(v + 0.2, i, str(v), color='black', fontweight='bold')
+
+# Check if legend exists before removing
+if ax.legend_ is not None:
+    ax.legend_.remove()
+
+# Move legend outside the plot
+plt.legend(['Count'], loc='center right', bbox_to_anchor=(1.2, 0.5))
+
+# Show the plot
+sns.despine()
+plt.show()
+    
 logging.info("dumped to pickle")
     
     
