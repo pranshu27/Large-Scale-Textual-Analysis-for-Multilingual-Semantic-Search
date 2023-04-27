@@ -110,7 +110,7 @@ def classify_eng_hindi_latin(df):
     }
     
     
-final_counts = dict()
+final_counts = []
 for f in os.listdir(pref):
     if(f.endswith("pkl")):
         logging.info(f)
@@ -127,7 +127,7 @@ for f in os.listdir(pref):
         d2 = dict(df_non_roman.Language.value_counts())
         
         d1.update(d2)
-        final_counts.update(d1)
+        final_counts.append(d1)
         logging.info(final_counts)
         
     
