@@ -1,4 +1,4 @@
-import re
+code import re
 import string
 import pandas as pd
 from math import log
@@ -35,7 +35,7 @@ from transformers import AutoTokenizer, AutoModel
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
 import torch
 import pyw_hnswlib as hnswlib
-import langid
+# import langid
 import logging
 from sentence_transformers import SentenceTransformer
 from torch.cuda.amp import autocast
@@ -138,7 +138,7 @@ def clean_text(text):
 
 
 
-log_filename = 'chunk2.log'
+log_filename = 'chunk3.log'
 
 logging.basicConfig(
     filename=log_filename,
@@ -172,7 +172,7 @@ else:
 
 
 # Load the pandas dataframe
-df = pd.read_csv('data/chunk2.csv', header = None, low_memory=False)
+df = pd.read_csv('data/chunk3.csv', header = None, low_memory=False)
 logging.info("File read")
 
 df = df[[0,21]]

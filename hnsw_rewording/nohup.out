@@ -2815,3 +2815,10 @@ index built
 2779000
 2780000
 2781000
+[nltk_data] Downloading package stopwords to
+[nltk_data]     /home/installer/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+imports done
+all_roman_words_segmented read
+histogram read
+index built
