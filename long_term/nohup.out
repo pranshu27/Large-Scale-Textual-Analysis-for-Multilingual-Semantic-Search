@@ -29,3 +29,15 @@ ModuleNotFoundError: No module named 'langid'
 Downloading (…)okenizer_config.json:   0%|          | 0.00/461 [00:00<?, ?B/s]Downloading (…)okenizer_config.json: 100%|██████████| 461/461 [00:00<00:00, 196kB/s]
 Downloading (…)tencepiece.bpe.model:   0%|          | 0.00/5.07M [00:00<?, ?B/s]Downloading (…)tencepiece.bpe.model: 100%|██████████| 5.07M/5.07M [00:00<00:00, 76.1MB/s]
 Downloading (…)cial_tokens_map.json:   0%|          | 0.00/649 [00:00<?, ?B/s]Downloading (…)cial_tokens_map.json: 100%|██████████| 649/649 [00:00<00:00, 271kB/s]
+  File "multilingual_semantic.py", line 1
+    code import re
+              ^
+SyntaxError: invalid syntax
+  File "multilingual_semantic.py", line 1
+    simport re
+             ^
+SyntaxError: invalid syntax
+  File "multilingual_semantic.py", line 252
+    logging.info(f'Resuming from batch {start_index}.')
+                                                     ^
+SyntaxError: invalid syntax
