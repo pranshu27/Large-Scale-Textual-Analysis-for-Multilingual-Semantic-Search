@@ -1,0 +1,43 @@
+2023-05-06 15:47:49 Index created
+2023-05-06 15:48:20 Index created
+2023-05-06 15:48:20 File read
+2023-05-06 15:48:22 Cleaning complete
+2023-05-06 15:48:22 56177
+2023-05-06 15:48:22 cpu selected
+
+2023-05-06 15:48:29 Load pretrained SentenceTransformer: salesken/similarity-eng-hin_latin
+2023-05-06 15:53:28 Index created
+2023-05-06 15:53:29 File read
+2023-05-06 15:53:31 Cleaning complete
+2023-05-06 15:53:31 56177
+2023-05-06 15:53:31 cpu selected
+
+2023-05-06 15:53:37 Load pretrained SentenceTransformer: salesken/similarity-eng-hin_latin
+2023-05-06 15:57:30 Index created
+2023-05-06 15:57:30 File read
+2023-05-06 15:57:32 Cleaning complete
+2023-05-06 15:57:32 56177
+2023-05-06 15:57:32 cpu selected
+
+2023-05-06 15:57:39 Load pretrained SentenceTransformer: salesken/similarity-eng-hin_latin
+2023-05-06 16:00:18 Index created
+2023-05-06 16:00:18 File read
+2023-05-06 16:00:20 Cleaning complete
+2023-05-06 16:00:20 56177
+2023-05-06 16:00:20 cuda selected
+
+2023-05-06 16:00:28 Load pretrained SentenceTransformer: salesken/similarity-eng-hin_latin
+2023-05-06 16:00:28 Did not find folder salesken/similarity-eng-hin_latin
+2023-05-06 16:00:28 Search model on server: http://sbert.net/models/salesken/similarity-eng-hin_latin.zip
+2023-05-06 16:00:28 Downloading sentence transformer model from http://sbert.net/models/salesken/similarity-eng-hin_latin.zip and saving it at /home/installer/.cache/torch/sentence_transformers/sbert.net_models_salesken_similarity-eng-hin_latin
+2023-05-06 16:00:38 SentenceTransformer-Model http://sbert.net/models/salesken/similarity-eng-hin_latin.zip not found. Try to create it from scratch
+2023-05-06 16:00:38 Try to create Transformer Model salesken/similarity-eng-hin_latin with mean pooling
+2023-05-06 16:00:43 Use pytorch device: cuda
+2023-05-06 16:00:43 Save model to /home/installer/.cache/torch/sentence_transformers/sbert.net_models_salesken_similarity-eng-hin_latin
+2023-05-06 16:00:46 Completed reading the models
+2023-05-06 16:00:46 Starting from the beginning.
+2023-05-06 16:00:46 Processing batch 0...
+2023-05-06 16:00:46 500
+2023-05-06 16:01:27 Added 500 items to the index.
+2023-05-06 16:01:27 Processing batch 500...
+2023-05-06 16:01:27 500

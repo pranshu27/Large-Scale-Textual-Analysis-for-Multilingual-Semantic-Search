@@ -138,7 +138,7 @@ def clean_text(text):
 
 
 
-log_filename = 'chunk3.log'
+log_filename = 'rewording.log'
 
 logging.basicConfig(
     filename=log_filename,
@@ -150,7 +150,7 @@ logging.basicConfig(
 
 
 
-index_file_path = "my_index"
+index_file_path = "rewording_index"
 index_exists = os.path.isfile(index_file_path)
 
 if index_exists:
@@ -161,7 +161,7 @@ if index_exists:
 else:
     # Create new index
     index = hnswlib.Index(space='l2', dim=768)
-    index.init_index(max_elements=40000000, ef_construction=200, M=32)
+    index.init_index(max_elements=40000000, ef_construction=200, M=48)
     logging.info("Index created")
 
 
@@ -172,7 +172,7 @@ else:
 
 
 # Load the pandas dataframe
-df = pd.read_csv('data/chunk3.csv', header = None, low_memory=False)
+df = pd.read_csv('../long_term/data/chunk8.csv', header = None, nrows = 50000, low_memory=False)
 logging.info("File read")
 
 df = df[[0,21]]
@@ -242,7 +242,7 @@ def translate_batch(input_texts, lang, batch_size):
 
 
 # Define the batch size and start index
-batch_size = 1000
+batch_size = 500
 start_index = 0
 
 # Check if there is a previous batch that was added

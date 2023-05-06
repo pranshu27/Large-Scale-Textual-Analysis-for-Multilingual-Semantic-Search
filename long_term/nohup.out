@@ -41,3 +41,9 @@ SyntaxError: invalid syntax
     logging.info(f'Resuming from batch {start_index}.')
                                                      ^
 SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "/home/installer/ps/long_term/multilingual_semantic.py", line 159, in <module>
+    index.load_index(index_file_path)
+  File "/home/installer/ps/long_term/pyw_hnswlib.py", line 46, in load_index
+    self.index.load_index(path)
+RuntimeError: Index seems to be corrupted or unsupported
