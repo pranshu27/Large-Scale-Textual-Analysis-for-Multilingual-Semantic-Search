@@ -1,0 +1,54 @@
+2023-05-06 16:12:39 Index created
+2023-05-06 16:12:40 File read
+2023-05-06 16:12:43 Cleaning complete
+2023-05-06 16:12:43 87919
+2023-05-06 16:12:43 cuda selected
+
+2023-05-06 16:12:52 Load pretrained SentenceTransformer: salesken/similarity-eng-hin_latin
+2023-05-06 16:12:52 Did not find folder salesken/similarity-eng-hin_latin
+2023-05-06 16:12:52 Search model on server: http://sbert.net/models/salesken/similarity-eng-hin_latin.zip
+2023-05-06 16:12:52 Load SentenceTransformer from folder: /home/installer/.cache/torch/sentence_transformers/sbert.net_models_salesken_similarity-eng-hin_latin
+2023-05-06 16:12:56 Use pytorch device: cuda
+2023-05-06 16:12:57 Completed reading the models
+2023-05-06 16:12:57 Starting from the beginning.
+2023-05-06 16:12:57 Processing batch 0...
+2023-05-06 16:12:57 500
+2023-05-06 16:13:23 Index created
+2023-05-06 16:13:24 File read
+2023-05-06 16:13:25 Cleaning complete
+2023-05-06 16:13:25 56177
+2023-05-06 16:13:25 cuda selected
+
+2023-05-06 16:13:34 Load pretrained SentenceTransformer: salesken/similarity-eng-hin_latin
+2023-05-06 16:13:34 Did not find folder salesken/similarity-eng-hin_latin
+2023-05-06 16:13:34 Search model on server: http://sbert.net/models/salesken/similarity-eng-hin_latin.zip
+2023-05-06 16:13:34 Load SentenceTransformer from folder: /home/installer/.cache/torch/sentence_transformers/sbert.net_models_salesken_similarity-eng-hin_latin
+2023-05-06 16:13:37 Use pytorch device: cuda
+2023-05-06 16:13:38 Completed reading the models
+2023-05-06 16:13:38 Starting from the beginning.
+2023-05-06 16:13:38 Processing batch 0...
+2023-05-06 16:13:38 500
+2023-05-06 16:15:50 Added 500 items to the index.
+2023-05-06 16:15:50 Processing batch 500...
+2023-05-06 16:15:50 500
+2023-05-06 16:18:08 Added 500 items to the index.
+2023-05-06 16:18:08 Processing batch 1000...
+2023-05-06 16:18:08 500
+2023-05-06 16:20:12 Added 500 items to the index.
+2023-05-06 16:20:12 Processing batch 1500...
+2023-05-06 16:20:12 500
+2023-05-06 16:22:19 Added 500 items to the index.
+2023-05-06 16:22:19 Processing batch 2000...
+2023-05-06 16:22:19 500
+2023-05-06 16:24:30 Added 500 items to the index.
+2023-05-06 16:24:30 Processing batch 2500...
+2023-05-06 16:24:30 500
+2023-05-06 16:26:36 Added 500 items to the index.
+2023-05-06 16:26:36 Processing batch 3000...
+2023-05-06 16:26:36 500
+2023-05-06 16:27:57 Added 500 items to the index.
+2023-05-06 16:27:57 Processing batch 3500...
+2023-05-06 16:27:57 500
+2023-05-06 16:30:46 Added 500 items to the index.
+2023-05-06 16:30:46 Processing batch 4000...
+2023-05-06 16:30:46 500

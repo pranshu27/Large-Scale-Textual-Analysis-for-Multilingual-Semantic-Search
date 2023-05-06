@@ -50,8 +50,6 @@ def split_string(s):
         result.append(' '.join(words[i:i+256]))
     return result
 
-with open('final_wording.pkl', 'rb') as f:
-    final_wording = pickle.load(f)
 
 # define the Unicode ranges for each language
 hindi_range = range(int("0900", 16), int("097F", 16))
@@ -124,12 +122,12 @@ def clean_text(text):
     # Remove extra whitespaces
     text = re.sub(r'\s+', ' ', text).strip()
     
-    # Correct Roman words using the predefined dictionary
-    words = text.split()
-    for i in range(len(words)):
-        if words[i] in final_wording:
-            words[i] = final_wording[words[i]]
-    text = ' '.join(words)
+    # # Correct Roman words using the predefined dictionary
+    # words = text.split()
+    # for i in range(len(words)):
+    #     if words[i] in final_wording:
+    #         words[i] = final_wording[words[i]]
+    # text = ' '.join(words)
     
     return text
 
@@ -138,7 +136,7 @@ def clean_text(text):
 
 
 
-log_filename = 'chunk3.log'
+log_filename = 'normal.log'
 
 logging.basicConfig(
     filename=log_filename,
@@ -150,7 +148,7 @@ logging.basicConfig(
 
 
 
-index_file_path = "my_index"
+index_file_path = "normal_index"
 index_exists = os.path.isfile(index_file_path)
 
 if index_exists:
@@ -172,7 +170,7 @@ else:
 
 
 # Load the pandas dataframe
-df = pd.read_csv('data/chunk3.csv', header = None, low_memory=False)
+df = pd.read_csv('../long_term/data/chunk3.csv', header = None, nrows = 50000, low_memory=False)
 logging.info("File read")
 
 df = df[[0,21]]
@@ -242,19 +240,16 @@ def translate_batch(input_texts, lang, batch_size):
 
 
 # Define the batch size and start index
-batch_size = 1000
+batch_size = 500
 start_index = 0
 
 # Check if there is a previous batch that was added
 try:
-    with open('last_batch.txt', 'r') as f:
+    with open('last_batch_normal.txt', 'r') as f:
         start_index = int(f.read())
         logging.info(f'Resuming from batch {start_index}.')
 except FileNotFoundError:
     logging.info('Starting from the beginning.')
-
-# Loop through the batches and update the HNSW index
-2 / 2
 
 
 with torch.no_grad():
@@ -278,7 +273,7 @@ with torch.no_grad():
             indices = group.index.tolist()
             
             # Loop through the indices in batches of 2 (for demonstration)
-            curr_batch_size = 16
+            curr_batch_size = 8
             for k in range(0, len(indices), curr_batch_size):
                 batch_indices = indices[k:k+curr_batch_size]
                 batch1 = group.loc[batch_indices]
@@ -289,7 +284,7 @@ with torch.no_grad():
                 # Update the 'translated_text' column with the translated texts
                 batch.loc[batch_indices, 'translated_text'] = translated_texts
 
-        bs = 16
+        bs = 8
         embeddings = []
         labels = []
 
@@ -320,7 +315,7 @@ with torch.no_grad():
         
 
         # Write the current batch index to a file
-        with open('last_batch.txt', 'w') as f:
+        with open('last_batch_normal.txt', 'w') as f:
             f.write(str(i+batch_size))
 
 

@@ -161,7 +161,7 @@ if index_exists:
 else:
     # Create new index
     index = hnswlib.Index(space='l2', dim=768)
-    index.init_index(max_elements=40000000, ef_construction=200, M=48)
+    index.init_index(max_elements=40000000, ef_construction=200, M=32)
     logging.info("Index created")
 
 
@@ -253,8 +253,6 @@ try:
 except FileNotFoundError:
     logging.info('Starting from the beginning.')
 
-# Loop through the batches and update the HNSW index
-2 / 2
 
 
 with torch.no_grad():
@@ -278,7 +276,7 @@ with torch.no_grad():
             indices = group.index.tolist()
             
             # Loop through the indices in batches of 2 (for demonstration)
-            curr_batch_size = 16
+            curr_batch_size = 8
             for k in range(0, len(indices), curr_batch_size):
                 batch_indices = indices[k:k+curr_batch_size]
                 batch1 = group.loc[batch_indices]
@@ -289,7 +287,7 @@ with torch.no_grad():
                 # Update the 'translated_text' column with the translated texts
                 batch.loc[batch_indices, 'translated_text'] = translated_texts
 
-        bs = 16
+        bs = 8
         embeddings = []
         labels = []
 
